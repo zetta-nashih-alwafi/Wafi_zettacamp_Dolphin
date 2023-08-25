@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header style="text-align: center; position: fixed; display: block; width: 100%; background-color: white">
+      <h1>Registration Form</h1>
+    </header>
+    <main>
+      <section class="form-regist" style="display: flex; align-self: stretch; padding: 84px 120px">
+        <form action="../HTML/profile.html" class="form-control">
+          <section class="form-email form-input">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required/>
+          </section>
+          <section class="form-name form-input">
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" required/>
+          </section>
+          <section class="form-phonen form-input">
+            <label for="phone">Phone Number</label>
+            <input type="number" name="phone" id="phone" required>
+          </section>
+          <section class="form-acctype form-input">
+            <p>Account Type:</p>
+            <input type="radio" name="account-type" id="free-plan" required/>
+            <label for="free-plan">Free Plan</label> <br />
+            <input type="radio" name="account-type" id="personal-plan" />
+            <label for="personal-plan">Personal Plan</label>
+          </section>
+          <button>Register Account</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
