@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    margin-inline: 0;
+    margin-block: 0;
+    font-family: Product Sans;
+}
+
+header figure img {
+width: 100%;
+}
+
+.my-profile {
+    display: flex;
+    gap: auto;
+    padding: 0 120px;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.my-profile .profile-pict img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: 100% 10%;
+    border-radius: 200px;
+}
+
+.my-profile .my-data h1{
+    font-size: 48px;
+    color: white;
+}
+
+.my-profile .my-data h4 {
+    font-size: 36px;
+}
+
+.description {
+    padding: 0 120px;
+    text-align: justify;
+}
+
+.description h1 {
+    font-size: 36px;
+    margin-bottom: 24px;
+}
+
+.description p {
+    text-indent: 32px;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.description p span:first-child {
+    font-size: 24px;
+}
