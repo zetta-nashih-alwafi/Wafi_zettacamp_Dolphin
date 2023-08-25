@@ -1,0 +1,137 @@
+* {
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+    margin-block: 0;
+    margin-inline: 0;
+
+    text-decoration: none;
+}
+
+html {
+    background-color: #eaeaea;
+}
+
+header {
+    display: flex;
+    padding: 36px 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    background: #FFF;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.25);
+}
+
+main {
+    padding: 0 10rem;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    height: 64px;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.hidden {
+    position: absolute;
+    top: 10rem;
+    left: 4rem
+}
+
+.card-set {
+    display: flex;
+    gap: 1rem 5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    height: 508px;
+    width: 310px;
+
+    transition: linear 200ms;
+}
+
+.card:hover {
+    transform: translate(0, -3px);
+    cursor: pointer;
+}
+
+.card .card-image {
+    height: 278px;
+    width: inherit;
+}
+
+.card .card-image img{
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    border-radius: 24px 24px 0 0;
+}
+
+.card .card-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card .card-detail .card-title {
+    font-size: 20px;
+    font-weight: normal;
+
+    height: 64px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card .card-detail .card-price::before {
+    content: "Rp. ";
+    font-size: 20px;
+    font-weight: 600px;
+}
+
+.card .card-detail .card-price {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card .card-detail .card-location {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.card .card-detail .card-rating {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.card .card-detail .card-rating span:nth-child(4)::before {
+    content: "Terjual ";
+}
+
+footer {
+    height: 168px;
+    padding: 60px 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: red;
+}
