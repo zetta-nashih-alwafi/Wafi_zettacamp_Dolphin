@@ -1,0 +1,680 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    margin-inline: 0;
+    margin-block: 0;
+
+    font-family: Product Sans;
+    text-decoration: none;
+    color: black;
+    list-style: none;
+
+    appearance: none;
+}
+
+nav {
+    display: flex;
+    padding: 2vw 12vw;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 110;
+
+    z-index: 99;
+
+    position: sticky;
+    top: 0;
+
+
+    box-sizing: border-box;
+    background: white;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.10);
+}
+
+.logo {
+    font-size: 40;
+    font-weight: 700;
+}
+
+.logo::before {
+    content: "By";
+    color: #89D5FF;
+}
+
+.logo::after {
+    content: "Nashih";
+    color: #FF7B7B;
+}
+
+nav .navbar ul {
+    display: flex;
+    gap: 0 32px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+header, main, footer {
+    padding: 0 12vw;
+}
+
+article:not(.yugioh-card) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
+
+    margin-bottom: 4vh;
+}
+
+footer {
+    display: flex;
+    padding: 40px 0;
+    justify-content: center;
+    background-color: black;
+}
+
+footer h1 {
+    color: white;
+}
+
+.active {
+    color: #3DA9FC;
+}
+
+/* Halaman Index/Homepage */
+
+header {
+    padding: 0 12.5vw;
+    text-align: justify;
+    box-sizing: border-box;
+}
+
+header .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .hero .description {
+    display: flex;
+    flex-direction: column;
+    width: 720px;
+}
+
+header .hero .description h1 {
+    font-size: 32;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+header .hero .description p {
+    font-size: 20;
+    text-indent: 16px;
+    line-height: 28px;
+    margin-bottom: 16px;
+}
+
+/* Halaman Shopping-List */
+
+.our-product, .our-collection {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    width: 1440px;
+}
+
+.our-product .card-set, .our-collection .card-set {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75vw;
+    justify-content: space-between;
+    row-gap: 3rem;
+    /* gap: 2rem; */
+}
+
+.card {
+    height: 508px !important;
+    width: 23vw;
+    perspective: 100000px;
+
+    cursor: pointer;
+
+    position: relative;
+
+    transition: transform 500ms;
+    transform-style: preserve-3d;
+}
+
+.card .tag-soldout {
+    position: absolute;
+    left: 24px;
+    top: 220px;
+    background: rgba(14, 14, 14, 0.50);
+    border-radius: 8px;
+    padding: 8px 16px;
+
+    color: #fefefe;
+    font-weight: 600;
+}
+
+.on-sale {
+    display: none;
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+.card-frontward, .card-backward {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: inherit;
+    width: inherit;
+    backface-visibility: hidden;
+}
+
+.card-backward {
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+.card-backward p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    color: #eaeaea;
+    font-weight: 600;
+
+    transform: translate(-50%, -50%);
+}
+
+.card .card-image {
+    height: 278px;
+    width: inherit;
+}
+
+.card .card-image img{
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    border-radius: 24px 24px 0 0;
+}
+
+.card .card-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.card .card-detail .card-title {
+    font-size: 20px;
+    font-weight: normal;
+
+    height: 48px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card .card-detail .card-price::before {
+    content: "Rp. ";
+    font-size: 20px;
+    font-weight: 700px;
+}
+
+.card .card-detail .card-price {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card .card-detail .card-location {
+    font-size: 16px;
+    font-weight: 400;
+    color: #adadad;
+}
+
+.card .card-detail .card-rating {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.card .card-detail .card-rating span {
+    color: #adadad;
+}
+
+.card .card-detail .card-rating span:nth-child(4)::before {
+    content: "Terjual ";
+}
+
+.card .card-detail .card-estarrive {
+    color: #adadad;
+}
+
+.our-collection .yugioh-card {
+    position: relative;
+    width: 320px;
+    height: 460px;
+
+    display: flex;
+}
+
+.our-collection .yugioh-card figure {
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+
+    z-index: 10;
+
+    transition: 500ms;
+
+    position: absolute;
+}
+
+.our-collection .yugioh-card .yugioh-flash {
+    width: 40px;
+    height: 1000px;
+    transform: rotate(45deg);
+
+    top: -400px;
+    left: -250px;
+
+    position: absolute;
+
+
+    transition: 500ms;
+
+    border-radius: 181px;
+    background: #FFF;
+    filter: blur(27px);
+}
+
+.our-collection .yugioh-card figure:hover .yugioh-flash {
+    top: -40px;
+    left: 400px;
+}
+
+.our-collection .yugioh-card figure:hover {
+    transform: rotate(-15deg) translateY(-150px);
+}
+
+.our-collection .yugioh-card .yugioh-description {
+    width: 320px;
+    position: absolute;
+
+    bottom: 0;
+}
+
+.our-collection .yugioh-card .yugioh-description h1 {
+    width: inherit;
+    margin-bottom: 8px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.our-collection .yugioh-card .yugioh-description p {
+    width: inherit;
+}
+
+.add-item {
+    width: 80px;
+    height: 80px;
+
+    position: fixed;
+    bottom: 8vw;
+    right: 12.5vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #89D5FF;
+    border-radius: 100px;
+
+
+    z-index: 99;
+}
+
+.three-card {
+    column-gap: 10rem;
+}
+
+/* Halaman About Me */
+
+.logo-company {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    margin-bottom: 32px;
+}
+
+.logo-company img {
+    width: 300px;
+    object-fit: contain;
+}
+
+.company-description, .our-services {
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+    text-align: justify;
+    margin-bottom: 32px;
+}
+
+.about-page h1 {
+    font-size: 36;
+    font-weight: 700;
+}
+
+.about-page p {
+    font-size: 20;
+    text-indent: 16px;
+    line-height: 28px;
+    margin-bottom: 16px;
+}
+
+.our-services figure {
+    width: 100%;
+}
+
+figure img {
+    width: inherit;
+}
+
+/* Halaman Add Item */
+button {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 48px;
+
+    margin: 0 auto;
+
+    /* position: absolute; */
+    width: 1047px;
+    height: 760px;
+}
+
+.navigasi {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 48px;
+
+    width: 1047px;
+    height: 24px;
+}
+
+.navigasi a, .navigasi button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    height: 24px;
+}
+
+.navigasi a h3, .navigasi button h3 {
+    height: 24px;
+
+    /* Body/Body Large */
+
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+
+    /* Button */
+
+    color: #3DA9FC;
+}
+
+.step {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+
+    height: 24px;
+}
+
+.step hr {
+    width: 80px;
+    height: 0px;
+
+    border: 2px solid #eaeaea;
+}
+
+.step .active {
+    width: 80px;
+    height: 0px;
+
+    border: 2px solid #094067;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 273px;
+
+    width: 1047px;
+    height: 688px;
+}
+.content .mainform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+
+    width: 480px;
+    height: 688px;
+}
+
+.content .mainform .unggahbuku h1 {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    /* identical to box height, or 129% */
+
+
+    /* Headline */
+
+    color: #094067;
+}
+
+.content .mainform .judul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+
+    width: 480px;
+    height: 84px;
+}
+
+.content .mainform .judul label {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    letter-spacing: 0.15px;
+
+    /* Paragraph */
+
+    color: #5F6C7B;
+}
+
+.content .mainform .judul input {
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 16px;
+
+    width: 480px;
+    height: 52px;
+
+    /* Background and Button Text */
+
+    background: #FFFFFF;
+    /* Paragraph */
+
+    border: 1px solid #5F6C7B;
+    border-radius: 8px;
+}
+
+.content .mainform .judul input::placeholder {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    letter-spacing: 0.1px;
+
+    /* Neutral/Neutral-300 */
+
+    color: #C1C1C1;
+}
+
+input[type='text'], input[type='file'] {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    letter-spacing: 0.1px;
+}
+
+.img {
+    width: 294px;
+    height: 441px;
+
+    object-fit: contain;
+
+    transform: translateY(24px);
+}
+
+
+.centerx {
+    display: flex;
+    justify-content: center;
+}
+
+.mt-56 {
+    margin-top: 56px;
+}
+
+/* Halaman Contact Me */
+
+.contact-me {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+
+    width: 480px;
+    height: 25vh;
+}
+
+.contact-me label {
+    font-weight: 700;
+    color: #5F6C7B;
+}
+
+.content .mainform .contact-me textarea {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    letter-spacing: 0.1px;
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px 24px;
+    gap: 16px;
+
+    width: 1047px;
+    height: 596px;
+
+    /* Background and Button Text */
+
+    background: #FFFFFF;
+    /* Paragraph */
+
+    border: 1px solid #5F6C7B;
+    border-radius: 8px;
+}
+
+.content .mainform .contact-me textarea::placeholder {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    letter-spacing: 0.1px;
+
+    /* Neutral/Neutral-300 */
+
+    color: #C1C1C1;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+

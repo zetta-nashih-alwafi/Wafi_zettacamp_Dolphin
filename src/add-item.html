@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add item</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/fonts.css">
+</head>
+<body>
+    <header class="centerx mt-56">
+        <div class="logo"></div>
+    </header>
+    <form action="../src/shopping-list.html">
+        <section class="content">
+            <section class="mainform">
+                <section class="unggahbuku">
+                    <h1>Add Item</h1>
+                </section>
+                <input type="hidden" name="user_id">
+                <section class="judul">
+                    <label for="judul">Item name</label>
+                    <input type="text" name="judul" id="judul" placeholder="Sony WH-1000XM5">
+                </section>
+                <section class="judul">
+                    <label for="Price">Price</label>
+                    <input type="text" name="Price" id="Price" placeholder="Rp. xxx.xxx.xxx">
+                </section>
+                <section class="judul">
+                    <label for="location">Location</label>
+                    <input type="text" name="location" id="location" placeholder="Jawa Tengah">
+                </section>
+                <section class="judul">
+                    <label for="image">Product image</label>
+                    <input type="file" name="image" id="image" placeholder="image">
+                </section>
+            </section>
+            <article class="card img-preview img">
+                <section class="card-frontward">
+                  <section class="tag-soldout on-sale">
+                    <span>Terjual habis</span>
+                  </section>
+                  <figure class="card-image">
+                    <img id="blah" />
+                  </figure>
+                  <section class="card-detail">
+                    <h4 class="card-title">Macbook Air 2020 M1 8/256 Black Matte Garansi Resim IBOX 1 tahun New</h4>
+                    <p class="card-price">14.256.000</p>
+                    <p class="card-location text-grey">Kota Yogyakarta</p>
+                    <section class="card-rating text-grey">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_455_1102)">
+                          <path
+                            d="M8.9998 15.0797L4.63727 17.8315C4.44455 17.9599 4.24306 18.0149 4.03282 17.9966C3.82258 17.9782 3.63862 17.9048 3.48093 17.7764C3.32325 17.648 3.20061 17.4877 3.11301 17.2954C3.02541 17.1024 3.00789 16.8867 3.06045 16.6482L4.21678 11.4474L0.353575 7.95261C0.178373 7.7875 0.0690469 7.59928 0.0255967 7.38795C-0.0185542 7.17734 -0.00558932 6.97115 0.0644915 6.76935C0.134572 6.56755 0.239694 6.40245 0.379855 6.27403C0.520017 6.14561 0.712739 6.06306 0.958022 6.02637L6.05641 5.55857L8.02743 0.660425C8.11503 0.440283 8.25099 0.275177 8.4353 0.165106C8.61891 0.0550355 8.80708 0 8.9998 0C9.19252 0 9.38104 0.0550355 9.56535 0.165106C9.74897 0.275177 9.88457 0.440283 9.97217 0.660425L11.9432 5.55857L17.0416 6.02637C17.2869 6.06306 17.4796 6.14561 17.6197 6.27403C17.7599 6.40245 17.865 6.56755 17.9351 6.76935C18.0052 6.97115 18.0185 7.17734 17.9751 7.38795C17.9309 7.59928 17.8212 7.7875 17.646 7.95261L13.7828 11.4474L14.9392 16.6482C14.9917 16.8867 14.9742 17.1024 14.8866 17.2954C14.799 17.4877 14.6764 17.648 14.5187 17.7764C14.361 17.9048 14.177 17.9782 13.9668 17.9966C13.7565 18.0149 13.5551 17.9599 13.3623 17.8315L8.9998 15.0797Z"
+                            fill="#F5C549" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_455_1102">
+                            <rect width="18" height="18" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+    
+                      <span>4.8</span>
+                      <span>|</span>
+                      <span>4,7 rb</span>
+                    </section>
+                    <p class="card-estarrive text-grey">Tiba 11-12 Aug</p>
+                  </section>
+                </section>
+                <section
+                  class="card-backward"
+                  id="set-img"
+                  style="
+                  position: relative;
+                  background: none;
+                    border-radius: inherit;
+                    background-size: cover;
+                    background-position: 50%;
+                  ">
+                  <!-- <img id="blah" style="position: absolute; top: 0; bottom: 0; width: 100%; height: 100%; border-radius: inherit; object-fit: cover;"> -->
+                  <p class="on-sale">Terjual habis</p>
+                </section>
+              </article>
+            <!-- <img class="img-preview img" id="blah"> -->
+        </section>
+        <section class="navigasi">
+            <a href="../src/shopping-list.html" class="back">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_721_1102" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                        y="0" width="24" height="24">
+                        <rect width="24" height="24" fill="#D9D9D9" />
+                    </mask>
+                    <g mask="url(#mask0_721_1102)">
+                        <path d="M9 18L3 12L9 6L10.4 7.4L6.8 11H21V13H6.8L10.4 16.6L9 18Z" fill="#3DA9FC" />
+                    </g>
+                </svg>
+                <h3>Previous page</h3>
+            </a>
+            <button>
+                <h3>Submit</h3>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_615_1159" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                        y="0" width="24" height="24">
+                        <rect x="24" y="24" width="24" height="24" transform="rotate(-180 24 24)"
+                            fill="#D9D9D9" />
+                    </mask>
+                    <g mask="url(#mask0_615_1159)">
+                        <path d="M15 6L21 12L15 18L13.6 16.6L17.2 13L3 13V11L17.2 11L13.6 7.4L15 6Z" fill="#3DA9FC" />
+                    </g>
+                </svg>
+            </button>
+        </section>
+    </form>
+    <script>
+        image.onchange = evt => {
+            const file = image.files;
+            const reader = event.target.files[0];
+            if (file) {
+                blah.src = URL.createObjectURL(file)
+                
+                const set = new FileReader();
+
+                reader.onload = function(e) {
+                const imageUrl = e.target.result;
+                imagePreview.innerHTML = `<img src="${imageUrl}" alt="Image Preview">`;
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
