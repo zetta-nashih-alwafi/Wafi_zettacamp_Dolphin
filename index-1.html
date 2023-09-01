@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRUD operations using JSON and local storage in JavaScript</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="h-full">
+    <button class='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 ' onclick='ClearInLocalStorage()' style='border: none; position: absolute; bottom: 240px; right: 44px'><i class='fa fa-trash' aria-hidden='true'></i>Delete All</button>
+    <button class='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900' onclick='removeItemInLocalStorage()' style='border: none; position: absolute; bottom: 160px; right: 44px'><i class='fa fa-trash' aria-hidden='true'></i>Delete Book Data</button>
+        
+      <button id='btnAddBook' style='position: absolute; bottom:110px; right: 48px;' onclick='showEditForm()' class='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'> <i class='fa fa-plus-circle' aria-hidden='true'></i>Add</button> 
+    <div class="relative overflow-x-auto">
+      <h1 class="text-center" >Crud operation in javascript using local storage</h1>
+      <br />
+      <fieldset>
+        <legend class="text-center" >Books List</legend>
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 my-16">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-center">bookID</th>
+              <th scope="col" class="px-6 py-3 text-center">bookName</th>
+              <th scope="col" class="px-6 py-3 text-center">bookAuthor</th>
+              <th scope="col" class="px-6 py-3 text-center">bookStock</th>
+              <th scope="col" class="px-6 py-3 text-center">bookDescription</th>
+              <th scope="col" class="px-6 py-3 text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody id="tblbody">
+          </tbody>
+        </table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 my-16 h-full">
+          <div id="form" class="table" style="display: flex; justify-content: space-evenly; align-items: center;">
+
+          </div>
+      </fieldset>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  bindBookData();
+  addBookDataToLocalStorage()
+
+  function addBookDataToLocalStorage(bookObj) {
+    var books = JSON.parse(localStorage.getItem('bookData'));
+    if (books != null) {
+      books.push(bookObj);
+      localStorage.setItem('bookData', JSON.stringify(books));
+    } else {
+      var bookData = new Array();
+      bookData.push(bookObj);
+      localStorage.setItem('bookData', JSON.stringify(bookData));
+    }
+  }
+
+  function updateDataToLocalStorage(bookObj) {
+    var books = JSON.parse(localStorage.getItem('bookData'));
+    if (books != null) {
+      var book = books.find((x) => x.bookID == bookObj.bookID);
+      if (book != null) {
+        book.bookName = bookObj.bookName;
+        book.bookAuthor = bookObj.bookAuthor;
+        book.bookStock = bookObj.bookStock;
+        book.bookDescription = bookObj.bookDescription;
+      }
+      localStorage.setItem('bookData', JSON.stringify(books));
+    }
+  }
+
+  function deleteBookDataFromLocalStorage(bookID) {
+    var books = JSON.parse(localStorage.getItem('bookData'));
+    if (books != null) {
+      var bookIndex = books.findIndex((a) => a.bookID === bookID);
+      if (bookIndex !== -1) {
+        books.splice(bookIndex, 1);
+        localStorage.setItem('bookData', JSON.stringify(books));
+      }
+    }
+  }
+
+  function bindBookData() {
+    var books = JSON.parse(localStorage.getItem('bookData'));
+    if (books != null) {
+      document.getElementById('tblbody').innerHTML = '';
+      books.forEach(function (item, index) {
+        var btnEditId = 'btnedit' + item.bookID;
+        var btnDeleteId = 'btndelete' + item.bookID;
+        var tableRow =
+          "<tr Id='" +
+          item.bookID +
+          "' data-BookID='" +
+          item.bookID +
+          "' data-BookName='" +
+          item.bookName +
+          "' data-BookAuthor='" +
+          item.bookAuthor +
+          "' data-BookStock='" +
+          item.bookStock +
+          "' data-BookDescription='" +
+          item.bookDescription +
+          "' class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>" +
+          "<td class='td-data px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center' scope='row'>" +
+          item.bookID +
+          '</td>' +
+          "<td class='td-data px-6 py-4 text-center'>" +
+          item.bookName +
+          '</td>' +
+          "<td class='td-data px-6 py-4 text-center'>" +
+          item.bookAuthor +
+          '</td>' +
+          "<td class='td-data px-6 py-4 text-center'>" +
+          item.bookStock +
+          '</td>' +
+          "<td class='td-data px-6 py-4 text-center'>" +
+          item.bookDescription +
+          '</td>' +
+          "<td class='td-data px-6 py-4 text-center'>" +
+          "<button id='" +
+          btnEditId +
+          "' class='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' onclick='showEditRow(" +
+          item.bookID +
+          ")'><i class='fa fa-pencil' aria-hidden='true'></i>Edit</button>" +
+          "<button id='" +
+          btnDeleteId +
+          "' class='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900' onclick='deleteBook(" +
+          item.bookID +
+          ")'><i class='fa fa-trash' aria-hidden='true'></i>Delete</button>" +
+          '</td>' +
+          '</tr>';
+        document.getElementById('tblbody').innerHTML += tableRow;
+      });
+    }
+  }
+
+  function GetBookID() {
+    const ID = Date.now();
+    return ID;
+  }
+
+  function showEditForm() {
+    var AddRow =
+      '<tr>' +
+      "<td class='td-data px-6 py-4 text-center'></td>" +
+      "<td class='td-data px-6 py-4 text-center'><input type='text' id='book-name' placeholder='Book Name..'></td>" +
+      "<td class='td-data px-6 py-4 text-center'><input type='text' id='book-author' placeholder='Book Author..'></td>" +
+      "<td class='td-data px-6 py-4 text-center'><input type='number' id='book-stock' placeholder='Book Stock..'></td>" +
+      "<td class='td-data px-6 py-4 text-center'><textarea id='book-description' placeholder='Book Description..'></textarea></td>" +
+      "<td class='td-data px-6 py-4 text-center flex gap-8'>" +
+      "<button class='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' onclick='addBook()'>" +
+      "<i class='fa fa-pencil' aria-hidden='true'></i>Save</button>" +
+      "<button class='btn btn-warning btn-xs btn-cancelupdate' onclick='cancelEditForm()'><i class='fa fa-times' aria-hidden='true'></i>Cancel</button>"
+      +'</td>' +
+      '</tr>';
+    document.getElementById('btnAddBook').disabled = true
+    document.getElementById('form').innerHTML += AddRow;
+  }
+
+  function cancelEditForm() {
+    location.reload()
+  }
+
+  function addBook() {
+    var bookId = GetBookID();
+    var bookName = document.getElementById('book-name').value;
+    if (!bookName) {
+      alert('Please enter book name!');
+      return false;
+    }
+    var bookAuthor = document.getElementById('book-author').value;
+    if (!bookAuthor) {
+      alert('Please enter book author!');
+      return false;
+    }
+    // ... (rest of your validation logic)
+
+    var bookStock = document.getElementById('book-stock').value;
+    var bookDescription = document.getElementById('book-description').value;
+    var bookObj = {
+      bookID: bookId,
+      bookName: bookName,
+      bookAuthor: bookAuthor,
+      bookStock: bookStock,
+      bookDescription: bookDescription,
+    };
+    addBookDataToLocalStorage(bookObj);
+    document.getElementById('book-name').value = '';
+    document.getElementById('book-author').value = '';
+    document.getElementById('book-stock').value = '';
+    document.getElementById('book-description').value = '';
+    bindBookData();
+    document.getElementById('btnAddBook').disabled = true;
+    location.reload()
+  }
+
+  function showEditRow(BookID) {
+    var bookRow = document.getElementById(BookID);
+    var trdata = bookRow.querySelectorAll('.td-data');
+
+    var bookID = trdata[0].innerHTML;
+    var bookName = trdata[1].innerHTML;
+    var bookAuthor = trdata[2].innerHTML;
+    var bookStock = trdata[3].innerHTML;
+    var bookDescription = trdata[4].innerHTML;
+
+    trdata[0].innerHTML = '<input required name="book-id" disabled class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" id="book-id value="' + bookID + '"/>';
+    trdata[1].innerHTML = '<input required name="book-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" id="book-name" value="' + bookName + '"/>';
+    trdata[2].innerHTML = '<input required name="book-author" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" id="book-author" value="' + bookAuthor + '"/>';
+    trdata[3].innerHTML = '<input required type="number" name="book-stock" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" id="book-stock" value="' + bookStock + '"/>';
+    trdata[4].innerHTML = '<input required name="book-description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" id="book-description" value="' + bookDescription + '"/>';
+    // ... (rest of the input fields)
+
+    trdata[5].innerHTML =
+      "<button class='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' onclick='updateBook(" +
+      BookID +
+      ")'>" +
+      "<i class='fa fa-pencil' aria-hidden='true'></i>Save</button>" +
+      "<button class='focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900' onclick='cancel(" +
+      BookID +
+      ")'><i class='fa fa-times' aria-hidden='true'></i>Cancel</button>";
+  }
+
+  function cancel(BookID) {
+    var btneditId = 'btnedit' + BookID;
+    var btndeleteId = 'btndelete' + BookID;
+
+    var bookRow = document.getElementById(BookID);
+    var data = bookRow.querySelectorAll('.td-data');
+
+    var bookName = bookRow.getAttribute('data-BookName');
+    var bookAuthor = bookRow.getAttribute('data-BookAuthor');
+    var bookStock = bookRow.getAttribute('data-BookStock');
+    var bookDescription = bookRow.getAttribute('data-BookDescription');
+
+    data[0].innerHTML = BookID;
+    data[1].innerHTML = bookName;
+    data[2].innerHTML = bookAuthor;
+    data[3].innerHTML = bookStock;
+    data[4].innerHTML = bookDescription;
+
+    var actionbtn =
+      "<button id='" +
+      btneditId +
+      "' class='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' onclick='showEditRow(" +
+      BookID +
+      ")'><i class='fa fa-pencil' aria-hidden='true'></i>Edit</button>" +
+      "<button id='" +
+      btndeleteId +
+      "' class='btn btn-danger btn-xs btn-deleteBook' onclick='deleteRow(" +
+      BookID +
+      ")'><i class='fa fa-trash' aria-hidden='true'></i>Delete</button>";
+
+    data[5].innerHTML = actionbtn;
+  }
+
+  function updateBook(BookID) {
+    var bookRow = document.getElementById(BookID);
+    var data = bookRow.querySelectorAll('.td-data');
+    var bookName = data[1].querySelector('#book-name').value;
+    var bookAuthor = data[2].querySelector('#book-author').value;
+    var bookStock = data[3].querySelector('#book-stock').value;
+    var bookDescription = data[4].querySelector('#book-description').value;
+
+    var bookObj = {
+      bookID: BookID,
+      bookName: bookName,
+      bookAuthor: bookAuthor,
+      bookStock: bookStock,
+      bookDescription: bookDescription,
+    };
+    // console.log(bookObj);
+    updateDataToLocalStorage(bookObj);
+    bindBookData();
+  }
+
+  function deleteBook(BookID) {
+    deleteBookDataFromLocalStorage(BookID);
+    bindBookData();
+  }
+
+  function ClearInLocalStorage() {
+         //clear method is used to clear localStorage.
+        localStorage.clear();
+        location.reload()
+    }
+
+    function removeItemInLocalStorage() {
+        //removeItem method is used to remove the data through key from localStorage.
+        localStorage.removeItem('bookData');
+        location.reload()
+    }
+
+</script>
