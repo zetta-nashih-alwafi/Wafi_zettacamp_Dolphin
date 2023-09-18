@@ -1,0 +1,13 @@
+{
+  "name": "Debugging Day 1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "majorityElement_wafi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node majorityElement_wafi",
+    "start": "node majorityElement_wafi.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

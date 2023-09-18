@@ -1,0 +1,79 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Day 6</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <h1 class="font-bold text-3xl text-center my-16">Fill your order</h1>
+    <form class="mx-8 mt-16" onsubmit="submit()" method="post">
+      <div class="mb-6">
+        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Book price</label>
+        <input
+          type="number"
+          id="price"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="1000000"
+          required />
+      </div>
+      <div class="mb-6">
+        <label for="discount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Discount</label>
+        <input
+          type="number"
+          id="discount"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="20%"
+          required />
+      </div>
+      <div class="mb-6">
+        <label for="tax" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tax</label>
+        <input
+          type="number"
+          id="tax"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          value="11"
+          disabled />
+      </div>
+      <div class="mb-6">
+        <label for="stock" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stock</label>
+        <input
+          type="number"
+          id="stock"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="50"
+          required />
+      </div>
+      <div class="mb-6">
+        <label for="purchase" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Purchase</label>
+        <input
+          type="number"
+          id="purchase"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="12"
+          required />
+      </div>
+      <div class="mb-6">
+        <label for="credit-term" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Term of Credit</label>
+        <input
+          type="number"
+          id="credit"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="24"
+          required />
+      </div>
+      <button
+        type="submit"
+        id="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Submit
+      </button>
+    </form>
+
+    <section>
+      <h1 class="font-bold text-3xl text-center mt-16">Purchase Note</h1>
+      <div id="book" class="mt-4"></div>
+    </section>
+    <script src="task1.js"></script>
+  </body>
+</html>
