@@ -1,0 +1,111 @@
+<form
+  class="grid mx-auto gap-x-4 px-4 mt-8 items-center"
+>
+  <section id="add-form">
+    <div class="mb-6">
+      <label
+        for="item-title"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Product Title</label
+      >
+      <input
+      name="itemTitle"
+      type="text"
+      id="item-title"
+      class="h-fit bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Macbook Air M1 2020"
+      #productName
+      required
+      />
+    </div>
+    <div class="mb-6">
+      <label
+        for="message"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Product Description</label
+      >
+      <textarea
+        #productDescription
+        id="message"
+        name="description"
+        rows="4"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Write yout product description here..."
+      ></textarea>
+    </div>
+    <div class="mb-6 grid grid-cols-2 gap-4">
+      <div>
+        <label
+          for="date"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Release Date</label
+        >
+        <input
+        #productReleaseDate
+          class="h-[42px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          type="date"
+          name="release-date"
+          id="date"
+        />
+      </div>
+      <div>
+        <label
+          for="stock"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Stock</label
+        >
+        <input
+        #productStock
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="2"
+          type="number"
+          name="stock"
+          id="stock"
+        />
+      </div>
+    </div>
+    <div class="mb-6">
+      <label
+        for="item-price"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Price</label
+      >
+      <div class="grid gap-2">
+        <input
+          name="itemPrice"
+          type="number"
+          id="item-price"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="14.256.000"
+          required
+          #productPrice
+        />
+      </div>
+    </div>
+    <div class="mb-6">
+      <label
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        for="user_avatar"
+        >Upload product image</label
+      >
+      <div>
+        <input
+          class="block p-2.5 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+          aria-describedby="user_avatar_help"
+          id="user_avatar"
+          type="file"
+          #productPicture
+          (change)="checkPicture($event)"
+        />
+      </div>
+    </div>
+    <button
+      type="button"
+      class="mx-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-gray-300"
+      [disabled]="!productName || !productPicture.value || !productPrice.value"
+      (click)="addNewProduct($event)"
+    >
+      Submit
+    </button>
+  </section>
+</form>

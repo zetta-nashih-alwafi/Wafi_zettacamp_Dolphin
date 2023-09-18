@@ -1,0 +1,30 @@
+<!-- <mat-card class="flex flex-col justify-center gap-1 rounded-3xl bg-white shadow-article h-96 sm:w-80 w-56 perspective cursor-pointer relative transform-3d hover:rotate-y-180 mx-auto">
+  <img mat-card-image [src]="'../../../assets/applewatch.jpeg'" class="h-1/2 w-full relative rounded-t-3xl overflow-hidden object-contain" alt="">
+  <mat-card-header>Apple Watch</mat-card-header>
+  <mat-card-content>
+    <section id="price" class="before:content-['Rp._']">
+      2.400.000
+    </section>
+    <section id="location">Kota Yogyakarta</section>
+  </mat-card-content>
+  <mat-card-actions>
+    <button>See item details</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    Estimate 24 - 25 Sept
+  </mat-card-footer>
+</mat-card> -->
+<mat-card class="product-card">
+  <div>
+    <img mat-card-image [src]="'assets/img/' + productDetail.pictureUrl" alt="Product Image">
+  </div>
+  <mat-card-content>
+    <p class="product-title">{{ productDetail.name }}</p>
+    <p class="product-description">{{ productDetail.description }}</p>
+    <p class="product-price before:content-['Rp._'] font-bold text-xl">{{ productDetail.price }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="accent" (click)="setSelectedItem()" class="mx-auto">View Details</button>
+  </mat-card-actions>
+</mat-card>
+

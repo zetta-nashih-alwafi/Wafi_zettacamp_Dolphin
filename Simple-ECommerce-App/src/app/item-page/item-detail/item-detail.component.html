@@ -1,0 +1,38 @@
+<!-- <p>{{selectedItem.name}}</p>
+<p>{{selectedItem.price}}</p>
+<p>{{selectedItem.pictureUrl}}</p>
+<p>{{selectedItem.description}}</p>
+<p>{{selectedItem.detail.release}}</p>
+<p>{{selectedItem.detail.stock}}</p> -->
+
+<div class="md:px-16 px-0">
+  <div class="px-4 sm:px-0">
+    <p class="text-24px text-base font-bold leading-7 text-gray-900">Product Details</p>
+  </div>
+  <div class="mt-6 border-t border-gray-100">
+    <dl class="divide-y divide-gray-100">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Product name</dt>
+        <dd class="text-16px mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ selectedItem.name }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="font-medium leading-6 text-gray-900">Product price</dt>
+        <dd class="text-16px mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 before:content-['Rp._']">{{ selectedItem.price }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Product Description</dt>
+        <dd class="text-16px mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ selectedItem.description }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Release Date</dt>
+        <dd class="text-16px mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ selectedItem.detail.release }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Stock</dt>
+        <dd class="text-16px mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ selectedItem.detail.stock }}</dd>
+      </div>
+    </dl>
+  </div>
+</div>
+<button></button>
+

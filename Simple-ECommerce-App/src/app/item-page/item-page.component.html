@@ -1,0 +1,7 @@
+<div *ngIf="selectedItem; then showDetail; else showList"></div>
+<ng-template #showDetail>
+  <app-item-detail></app-item-detail>
+</ng-template>
+<ng-template #showList>
+  <app-item-list></app-item-list>
+</ng-template>

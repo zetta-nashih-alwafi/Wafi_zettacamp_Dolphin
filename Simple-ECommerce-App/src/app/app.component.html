@@ -1,0 +1,9 @@
+<app-navigation-bar (sectionChanged)="changeSection($event)"></app-navigation-bar>
+
+<div *ngIf="section == 'formItem'; then addItem; else homePage"></div>
+<ng-template #homePage>
+  <app-item-page></app-item-page>
+</ng-template>
+<ng-template #addItem>
+  <app-add-item-form (sectionChanged)="changeSection($event)"></app-add-item-form>
+</ng-template>

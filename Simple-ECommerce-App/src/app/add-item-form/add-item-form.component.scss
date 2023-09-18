@@ -1,0 +1,41 @@
+/* Adjust font size for smaller screens */
+@media screen and (max-width: 600px) {
+  .product-title {
+    font-size: 0.5rem;
+  }
+
+  .product-description {
+    font-size: 0.875rem;
+  }
+}
+
+.product-card {
+  width: 300px;
+  margin: 16px;
+  margin: 0 auto;
+}
+
+.product-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.product-description {
+  margin-top: 8px;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  color: #e91e63; /* Change to your desired color */
+}
+
+.mat-card-image {
+  max-height: 200px;
+  object-fit: cover;
+  margin: 0 !important;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+}
