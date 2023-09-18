@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ItemService } from '../shared-module/item.service';
 import { Product } from '../model/item.model';
 
@@ -7,10 +7,15 @@ import { Product } from '../model/item.model';
   templateUrl: './item-page.component.html',
   styleUrls: ['./item-page.component.scss']
 })
-export class ItemPageComponent implements OnInit {
+export class ItemPageComponent implements OnInit, OnDestroy {
   selectedItem: Product | null = null;
 
   constructor(private itemService: ItemService) {
+  }
+  ngOnDestroy(): void {
+    this.itemService.selectedItem$.subscribe((item) => {
+      this.selectedItem = item;
+    }).unsubscribe();
   }
 
   ngOnInit(): void {
@@ -18,5 +23,6 @@ export class ItemPageComponent implements OnInit {
       this.selectedItem = item;
     });
   }
+
 
 }
