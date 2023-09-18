@@ -1,0 +1,8 @@
+<app-product-form (AddNewProduct)="onProductAdded($event)"></app-product-form>
+
+<section class="grid grid-cols-3 gap-16">
+  <app-product-card
+    *ngFor="let productDetail of productDetails"
+    [product]="productDetail"
+  ></app-product-card>
+</section>

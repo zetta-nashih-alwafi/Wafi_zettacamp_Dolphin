@@ -1,0 +1,74 @@
+<article
+    class="flex flex-col gap-1 rounded-3xl bg-white shadow-article h-96 sm:w-80 w-56 perspective cursor-pointer relative transform-3d hover:rotate-y-180 mx-auto"
+  >
+    <section
+      class="absolute flex flex-col gap-1 w-full h-full rotate-y-0 backface-visibility-hidden"
+    >
+      <figure class="h-1/2 w-full relative rounded-t-3xl overflow-hidden">
+        <section
+          class="absolute text-sm left-4 bottom-4 font-semibold text-white md:text-normal md:left-6 md:bottom-4 bg-zinc-900/80 px-4 py-2 rounded-lg"
+        >
+          <span>Terjual habis</span>
+        </section>
+        <img
+          id="blah"
+          class="w-full h-full object-cover"
+          src="https://w0.peakpx.com/wallpaper/196/143/HD-wallpaper-black-dark-plain-solid.jpg"
+        />
+      </figure>
+      <section class="flex flex-col gap-8 px-4 h-1/2">
+        <div *ngIf="product.productName; then productName; else placeholderName"></div>
+        <ng-template #productName>
+          <h4 class="md:text-xl text-lg font-normal line-clamp-2">
+            {{ product.productName }}
+          </h4>
+        </ng-template>
+        <ng-template #placeholderName>
+          <h4 class="md:text-xl text-lg font-normal line-clamp-2">
+            Macbook Air 2020 M1 8/256 Black Matte Garansi Resim IBOX 1 tahun New
+          </h4>
+        </ng-template>
+        <div *ngIf="product.productPrice; then productPrice; else placeholderPrice"></div>
+        <ng-template #productPrice>
+          <p class="before:content-['Rp._'] text-xl font-bold">{{ product.productPrice }}</p>
+        </ng-template>
+        <ng-template #placeholderPrice>
+          <p class="before:content-['Rp._'] text-xl font-bold">14.256.000</p>
+        </ng-template>
+        <section class="flex gap-2 item-center text-gray-400">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_455_1102)">
+              <path
+                d="M8.9998 15.0797L4.63727 17.8315C4.44455 17.9599 4.24306 18.0149 4.03282 17.9966C3.82258 17.9782 3.63862 17.9048 3.48093 17.7764C3.32325 17.648 3.20061 17.4877 3.11301 17.2954C3.02541 17.1024 3.00789 16.8867 3.06045 16.6482L4.21678 11.4474L0.353575 7.95261C0.178373 7.7875 0.0690469 7.59928 0.0255967 7.38795C-0.0185542 7.17734 -0.00558932 6.97115 0.0644915 6.76935C0.134572 6.56755 0.239694 6.40245 0.379855 6.27403C0.520017 6.14561 0.712739 6.06306 0.958022 6.02637L6.05641 5.55857L8.02743 0.660425C8.11503 0.440283 8.25099 0.275177 8.4353 0.165106C8.61891 0.0550355 8.80708 0 8.9998 0C9.19252 0 9.38104 0.0550355 9.56535 0.165106C9.74897 0.275177 9.88457 0.440283 9.97217 0.660425L11.9432 5.55857L17.0416 6.02637C17.2869 6.06306 17.4796 6.14561 17.6197 6.27403C17.7599 6.40245 17.865 6.56755 17.9351 6.76935C18.0052 6.97115 18.0185 7.17734 17.9751 7.38795C17.9309 7.59928 17.8212 7.7875 17.646 7.95261L13.7828 11.4474L14.9392 16.6482C14.9917 16.8867 14.9742 17.1024 14.8866 17.2954C14.799 17.4877 14.6764 17.648 14.5187 17.7764C14.361 17.9048 14.177 17.9782 13.9668 17.9966C13.7565 18.0149 13.5551 17.9599 13.3623 17.8315L8.9998 15.0797Z"
+                fill="#F5C549"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_455_1102">
+                <rect width="18" height="18" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          <span>4.8</span>
+          <span>|</span>
+          <span class="before:content-['Terjual_']">4,7 rb</span>
+        </section>
+      </section>
+    </section>
+    <section
+      class="overflow-hidden flex gap-1 w-full h-full rotate-y-180 text-center backface-visibility-hidden bg-cover rounded-3xl bg-no-repeat bg-center bg-cover bg-[url('https://photos5.appleinsider.com/gallery/45371-88387-Mac-Pro-and-16-Inch-MacBook-Pro-Open-xl.jpg')] items-center justify-center"
+    >
+      <p
+        class="flex justify-center items-center h-full w-full bg-zinc-900/80 px-4 py-2 rounded-lg text-white"
+      >
+        Terjual habis
+      </p>
+    </section>
+  </article>
