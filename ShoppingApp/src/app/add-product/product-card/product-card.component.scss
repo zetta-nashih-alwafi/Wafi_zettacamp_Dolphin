@@ -1,0 +1,26 @@
+@media (min-width: 640px) {
+  .tag-center {
+    // top: 50%;
+    // left: 50%;
+    // -ms-transform: translate(-50%, -50%);
+    transform: translate(50%, 0);
+  }
+
+}
+
+select {
+  appearance: none;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-3d {
+  transition: transform 500ms;
+  transform-style: preserve-3d;
+}
+
+.shadow-article {
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}

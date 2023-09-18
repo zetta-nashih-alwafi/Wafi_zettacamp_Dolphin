@@ -1,0 +1,15 @@
+<app-product-form (AddNewProduct)="onProductAdded($event)"></app-product-form>
+
+<section class="grid lg:grid-cols-3 sm:gap-16 grid-cols-2 gap-4 justify-center">
+  <app-product-card
+    *ngFor="let productDetail of productDetails; let i = index"
+    [product]="productDetail"
+    (removeId)="removeCard(i)"
+    [editedName]="productName"
+    [editedPrice]="productPrice"
+    [editedPict]="productPict"
+    (editCard)="previousValue($event)"
+  >
+  <button (click)="editCard()">Edit Item</button>
+  </app-product-card>
+</section>
